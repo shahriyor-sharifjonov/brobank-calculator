@@ -27,6 +27,9 @@
     flex-wrap: wrap;
     gap: 30px;
     &_large {
+      .calculator__input {
+        border-radius: 8px 8px 8px 0;
+      }
       @include media(992) {
         width: 100%;
       }

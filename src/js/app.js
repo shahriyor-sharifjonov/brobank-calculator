@@ -45,3 +45,12 @@ document.querySelectorAll(".dropdown").forEach(function (dropdownWrapper) {
     }
   });
 });
+
+const ranges = document.querySelectorAll(".calculator__range");
+
+ranges.forEach((el) => {
+  el.addEventListener("input", () => {
+    let percent = ((el.value - el.min) * 100) / (el.max - el.min) - 0.1;
+    el.style.background = `linear-gradient(to right, #176EAE ${percent}%, transparent ${percent}%)`;
+  });
+});

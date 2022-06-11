@@ -2,25 +2,25 @@ mixin calculator()
     .calculator 
         .calculator__body.container 
             .calculator__form 
-                .calculator__line.calculator__line_large
+                .calculator__line.calculator__line_large 
                     .calculator__block
                         p.calculator__label Сумма вклада
                         input(type="text" placeholder="10 000 ₽" value="10 000 ₽" disabled).calculator__input
-                        input(type="range" value="10000" min="10000" max="10000000" step="10000" data-suffix="₽").calculator__range
-                .calculator__line.calculator__line_large
+                        input(type="range" value="6" min="10000" max="10000000" step="10000" data-suffix="₽").calculator__range
+                .calculator__line.calculator__line_large 
                     .calculator__block
                         p.calculator__label Срок вклада
                         input(type="text" placeholder="6 мес." value="6 мес." disabled).calculator__input
-                        input(type="range" value="6" min="6" max="60" data-suffix="мес.").calculator__range
-                .calculator__line
-                    .calculator__item
+                        input(type="range" value="6" min="6" max="60" step="1" data-suffix="мес.").calculator__range
+                .calculator__line 
+                    .calculator__item 
                         p.calculator__label Процентная ставка, в год
                         input(type="text" placeholder="10,00%" value="10,00%").calculator__input
-                    .calculator__item
+                    .calculator__item 
                         p.calculator__label Дата открытия
                         input(type="text" placeholder="30.05.2022" value="30.05.2022").calculator__input
-                .calculator__line
-                    .calculator__item
+                .calculator__line 
+                    .calculator__item 
                         p.calculator__label Начисленные проценты
                         .dropdown 
                             button(type='button').dropdown__button Оставлять на вк..
