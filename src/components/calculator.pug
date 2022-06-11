@@ -39,5 +39,16 @@ mixin calculator()
                                 li.dropdown__list-item.dropdown__list-item_active(data-value="Раз в месяц") Раз в месяц
                                 li.dropdown__list-item(data-value="Раз в году") Раз в году
                             input(type="text" name="select-withdraw" value="").dropdown__input_hidden
-
             .calculator__footer 
+                .calculator__footer-item.calculator__results
+                    .calculator__footer-action 
+                        button(type='button').calculator__footer-action-btn Добавить пополнение  
+                        button(type='button').calculator__footer-action-btn Добавить снятие  
+                    .calculator__footer-result
+                        p.calculator__footer-result-label Сумма в конце 
+                        p.calculator__footer-result-p#endresult 1 100 000 ₽ 
+                    .calculator__footer-result
+                        p.calculator__footer-result-label Доход за 1 год 
+                        p.calculator__footer-result-p#yearresult 100 000 ₽ 
+                .calculator__footer-item
+                    button(type='button').calculator__footer-btn Показать график выплат 

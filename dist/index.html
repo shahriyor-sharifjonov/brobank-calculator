@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css?_v=20220611105409">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220611171622">
     <title>Document</title>
   </head>
   <body> 
@@ -65,11 +65,29 @@
                         </div>
                       </div>
                     </div>
-                    <div class="calculator__footer"> </div>
+                    <div class="calculator__footer"> 
+                      <div class="calculator__footer-item calculator__results">
+                        <div class="calculator__footer-action"> 
+                          <button class="calculator__footer-action-btn" type="button">Добавить пополнение  </button>
+                          <button class="calculator__footer-action-btn" type="button">Добавить снятие  </button>
+                        </div>
+                        <div class="calculator__footer-result">
+                          <p class="calculator__footer-result-label">Сумма в конце </p>
+                          <p class="calculator__footer-result-p" id="endresult">1 100 000 ₽ </p>
+                        </div>
+                        <div class="calculator__footer-result">
+                          <p class="calculator__footer-result-label">Доход за 1 год </p>
+                          <p class="calculator__footer-result-p" id="yearresult">100 000 ₽ </p>
+                        </div>
+                      </div>
+                      <div class="calculator__footer-item">
+                        <button class="calculator__footer-btn" type="button">Показать график выплат </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
       </main>
     </div>
-    <script src="js/app.min.js?_v=20220611105409"> </script>
+    <script src="js/app.min.js?_v=20220611171622"> </script>
   </body>
 </html>

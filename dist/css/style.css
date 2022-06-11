@@ -113,6 +113,14 @@
           box-shadow: 0px 10px 20px rgba(136, 145, 157, 0.3);
   border-radius: 8px;
   padding: 60px 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 40px;
 }
 
 .calculator__form {
@@ -188,6 +196,116 @@
 
 .calculator__input::placeholder {
   color: #88919d;
+}
+
+.calculator__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 30px;
+}
+
+.calculator__footer-item {
+  width: calc(50% - 15px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 30px;
+}
+
+.calculator__footer-action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  row-gap: 15px;
+}
+
+.calculator__footer-action-btn {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  -webkit-transition: 100ms ease-out;
+  -o-transition: 100ms ease-out;
+  transition: 100ms ease-out;
+  color: #176eae;
+}
+
+.calculator__footer-action-btn:hover {
+  color: #0f3647;
+}
+
+.calculator__footer-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.calculator__footer-result-label {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 140%;
+  color: #88919d;
+}
+
+.calculator__footer-result-p {
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 140%;
+  color: #444444;
+}
+
+.calculator__footer-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #fedd2e;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  background: #fedd2e;
+  border-radius: 8px;
+  height: 55px;
+  color: #000000;
+  -webkit-transition: 100ms ease-out;
+  -o-transition: 100ms ease-out;
+  transition: 100ms ease-out;
+}
+
+.calculator__footer-btn:hover {
+  background: #fdce1b;
 }
 
 .dropdown {
@@ -451,6 +569,20 @@ input[type=range]::-ms-thumb:hover {
   .calculator__body {
     padding: 60px;
   }
+
+  .calculator__footer-item {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+
+  .calculator__footer-btn {
+    width: 270px;
+  }
+
+  .calculator__results {
+    width: calc(100% - 300px);
+  }
 }
 
 @media (max-width: 992px) {
@@ -468,6 +600,28 @@ input[type=range]::-ms-thumb:hover {
   .calculator__item {
     width: 100%;
   }
+
+  .calculator__footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .calculator__results {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator__footer-action {
+    width: 100%;
+  }
+
+  .calculator__results {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 576px) {
@@ -477,5 +631,22 @@ input[type=range]::-ms-thumb:hover {
 
   .calculator__line {
     width: 100%;
+  }
+
+  .calculator__footer-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .calculator__footer-result-p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+    color: #444444;
+  }
+
+  .calculator__footer-btn {
+    width: 100%;
+    max-width: 100%;
   }
 }
