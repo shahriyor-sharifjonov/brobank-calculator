@@ -39,6 +39,42 @@ mixin calculator()
                                 li.dropdown__list-item.dropdown__list-item_active(data-value="Раз в месяц") Раз в месяц
                                 li.dropdown__list-item(data-value="Раз в году") Раз в году
                             input(type="text" name="select-withdraw" value="").dropdown__input_hidden
+            .calculator__withdraw 
+                .calculator__withdraw-title #[p Пополнение 1]
+                    button(type='button').calculator__withdraw-delete Удалить
+                .calculator__withdraw-form  
+                    .calculator__withdraw-item
+                        p.calculator__withdraw-label Сумма
+                        input(type="text" value="100 000 ₽").calculator__withdraw-input
+                    .calculator__withdraw-item
+                        p.calculator__withdraw-label Дата
+                        input(type="text" value="30.07.2022").calculator__withdraw-input
+                    .calculator__withdraw-item
+                        p.calculator__withdraw-label Периодичность
+                        .dropdown 
+                            button(type='button').dropdown__button Разовое
+                            ul.dropdown__list 
+                                li.dropdown__list-item(data-value="Не разовое") Не разовое
+                                li.dropdown__list-item.dropdown__list-item_active(data-value="Разовое") Разовое
+                            input(type="text" name="select-period" value="").dropdown__input_hidden
+            .calculator__withdraw 
+                .calculator__withdraw-title #[p Снятие 1]
+                    button(type='button').calculator__withdraw-delete Удалить
+                .calculator__withdraw-form  
+                    .calculator__withdraw-item
+                        p.calculator__withdraw-label Сумма
+                        input(type="text" value="100 000 ₽").calculator__withdraw-input
+                    .calculator__withdraw-item
+                        p.calculator__withdraw-label Дата
+                        input(type="text" value="30.09.2022").calculator__withdraw-input
+                    .calculator__withdraw-item
+                        p.calculator__withdraw-label Периодичность
+                        .dropdown 
+                            button(type='button').dropdown__button Разовое
+                            ul.dropdown__list 
+                                li.dropdown__list-item(data-value="Не разовое") Не разовое
+                                li.dropdown__list-item.dropdown__list-item_active(data-value="Разовое") Разовое
+                            input(type="text" name="select-period" value="").dropdown__input_hidden
             .calculator__footer 
                 .calculator__footer-item.calculator__results
                     .calculator__footer-action 

@@ -176,4 +176,61 @@
       flex-wrap: wrap;
     }
   }
+  &__withdraw {
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      p {
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 140%;
+        color: #000000;
+      }
+    }
+    &-delete {
+      transition: 300ms ease-out;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 21px;
+      color: #176eae;
+      &:hover {
+        color: #0f3647;
+      }
+    }
+    &-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+    &-item {
+      width: 180px;
+      @include media(768) {
+        width: 100%;
+      }
+    }
+    &-label {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 21px;
+      color: #88919d;
+      margin-bottom: 15px;
+    }
+    &-input {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 25px;
+      color: #444444;
+      background: #ffffff;
+      border: 1px solid #e6eaed;
+      border-radius: 8px;
+      padding: 10px 15px;
+      height: 50px;
+      width: 100%;
+    }
+  }
 }

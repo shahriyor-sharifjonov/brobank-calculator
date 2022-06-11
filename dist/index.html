@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css?_v=20220611171622">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220611191909">
     <title>Document</title>
   </head>
   <body> 
@@ -65,6 +65,60 @@
                         </div>
                       </div>
                     </div>
+                    <div class="calculator__withdraw"> 
+                      <div class="calculator__withdraw-title">
+                        <p>Пополнение 1</p>
+                        <button class="calculator__withdraw-delete" type="button">Удалить</button>
+                      </div>
+                      <div class="calculator__withdraw-form"> 
+                        <div class="calculator__withdraw-item">
+                          <p class="calculator__withdraw-label">Сумма</p>
+                          <input class="calculator__withdraw-input" type="text" value="100 000 ₽">
+                        </div>
+                        <div class="calculator__withdraw-item">
+                          <p class="calculator__withdraw-label">Дата</p>
+                          <input class="calculator__withdraw-input" type="text" value="30.07.2022">
+                        </div>
+                        <div class="calculator__withdraw-item">
+                          <p class="calculator__withdraw-label">Периодичность</p>
+                          <div class="dropdown"> 
+                            <button class="dropdown__button" type="button">Разовое</button>
+                            <ul class="dropdown__list"> 
+                              <li class="dropdown__list-item" data-value="Не разовое">Не разовое</li>
+                              <li class="dropdown__list-item dropdown__list-item_active" data-value="Разовое">Разовое</li>
+                            </ul>
+                            <input class="dropdown__input_hidden" type="text" name="select-period" value="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calculator__withdraw"> 
+                      <div class="calculator__withdraw-title">
+                        <p>Снятие 1</p>
+                        <button class="calculator__withdraw-delete" type="button">Удалить</button>
+                      </div>
+                      <div class="calculator__withdraw-form"> 
+                        <div class="calculator__withdraw-item">
+                          <p class="calculator__withdraw-label">Сумма</p>
+                          <input class="calculator__withdraw-input" type="text" value="100 000 ₽">
+                        </div>
+                        <div class="calculator__withdraw-item">
+                          <p class="calculator__withdraw-label">Дата</p>
+                          <input class="calculator__withdraw-input" type="text" value="30.09.2022">
+                        </div>
+                        <div class="calculator__withdraw-item">
+                          <p class="calculator__withdraw-label">Периодичность</p>
+                          <div class="dropdown"> 
+                            <button class="dropdown__button" type="button">Разовое</button>
+                            <ul class="dropdown__list"> 
+                              <li class="dropdown__list-item" data-value="Не разовое">Не разовое</li>
+                              <li class="dropdown__list-item dropdown__list-item_active" data-value="Разовое">Разовое</li>
+                            </ul>
+                            <input class="dropdown__input_hidden" type="text" name="select-period" value="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="calculator__footer"> 
                       <div class="calculator__footer-item calculator__results">
                         <div class="calculator__footer-action"> 
@@ -88,6 +142,6 @@
                 </div>
       </main>
     </div>
-    <script src="js/app.min.js?_v=20220611171622"> </script>
+    <script src="js/app.min.js?_v=20220611191909"> </script>
   </body>
 </html>
