@@ -40,7 +40,7 @@ mixin calculator()
                                 li.dropdown__list-item(data-value="Раз в году") Раз в году
                             input(type="text" name="select-withdraw" value="").dropdown__input_hidden
             .calculator__withdraw 
-                .calculator__withdraw-title #[p Пополнение 1]
+                .calculator-title #[p Пополнение 1]
                     button(type='button').calculator__withdraw-delete Удалить
                 .calculator__withdraw-form  
                     .calculator__withdraw-item
@@ -58,7 +58,7 @@ mixin calculator()
                                 li.dropdown__list-item.dropdown__list-item_active(data-value="Разовое") Разовое
                             input(type="text" name="select-period" value="").dropdown__input_hidden
             .calculator__withdraw 
-                .calculator__withdraw-title #[p Снятие 1]
+                .calculator-title #[p Снятие 1]
                     button(type='button').calculator__withdraw-delete Удалить
                 .calculator__withdraw-form  
                     .calculator__withdraw-item
@@ -75,6 +75,59 @@ mixin calculator()
                                 li.dropdown__list-item(data-value="Не разовое") Не разовое
                                 li.dropdown__list-item.dropdown__list-item_active(data-value="Разовое") Разовое
                             input(type="text" name="select-period" value="").dropdown__input_hidden
+            .calculator__list 
+                .calculator-title #[p График выплат]
+                .calculator__list-header
+                    p.calculator__list-header-p Дата
+                    p.calculator__list-header-p Начислено %
+                    p.calculator__list-header-p Операции
+                    p.calculator__list-header-p Остаток вклада
+                .calculator__list-content
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.05.2022
+                        p(data-name="Начислено %").calculator__list-item-p -
+                        p(data-name="Операции").calculator__list-item-p + 1 000 000,00
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 000 000,00
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.06.2022
+                        p(data-name="Начислено %").calculator__list-item-p 8 493,15
+                        p(data-name="Операции").calculator__list-item-p + 8 493,15
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 008 493,15
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.07.2022
+                        p(data-name="Начислено %").calculator__list-item-p -
+                        p(data-name="Операции").calculator__list-item-p.green + 100 000,00
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 108 493,15
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.07.2022
+                        p(data-name="Начислено %").calculator__list-item-p 8 288,98
+                        p(data-name="Операции").calculator__list-item-p + 8 288,98
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 116 782,13
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.08.2022
+                        p(data-name="Начислено %").calculator__list-item-p -
+                        p(data-name="Операции").calculator__list-item-p.red - 50 000,00
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 066 782,13
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.08.2022
+                        p(data-name="Начислено %").calculator__list-item-p 9 485,00
+                        p(data-name="Операции").calculator__list-item-p + 9 485,00
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 076 267,13
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.09.2022
+                        p(data-name="Начислено %").calculator__list-item-p 9 140,90
+                        p(data-name="Операции").calculator__list-item-p + 9 140,90
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 085 408,03
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.10.2022
+                        p(data-name="Начислено %").calculator__list-item-p 8 921,16
+                        p(data-name="Операции").calculator__list-item-p + 8 921,16
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 094 329,19
+                    .calculator__list-item  
+                        p(data-name="Дата").calculator__list-item-p 30.11.2022
+                        p(data-name="Начислено %").calculator__list-item-p 9 294,30
+                        p(data-name="Операции").calculator__list-item-p + 9 294,30
+                        p(data-name="Остаток вклада").calculator__list-item-p 1 103 623,49
             .calculator__footer 
                 .calculator__footer-item.calculator__results
                     .calculator__footer-action 

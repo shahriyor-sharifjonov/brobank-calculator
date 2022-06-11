@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css?_v=20220611191909">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220611221528">
     <title>Document</title>
   </head>
   <body> 
@@ -66,7 +66,7 @@
                       </div>
                     </div>
                     <div class="calculator__withdraw"> 
-                      <div class="calculator__withdraw-title">
+                      <div class="calculator-title">
                         <p>Пополнение 1</p>
                         <button class="calculator__withdraw-delete" type="button">Удалить</button>
                       </div>
@@ -93,7 +93,7 @@
                       </div>
                     </div>
                     <div class="calculator__withdraw"> 
-                      <div class="calculator__withdraw-title">
+                      <div class="calculator-title">
                         <p>Снятие 1</p>
                         <button class="calculator__withdraw-delete" type="button">Удалить</button>
                       </div>
@@ -116,6 +116,73 @@
                             </ul>
                             <input class="dropdown__input_hidden" type="text" name="select-period" value="">
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="calculator__list"> 
+                      <div class="calculator-title">
+                        <p>График выплат</p>
+                      </div>
+                      <div class="calculator__list-header">
+                        <p class="calculator__list-header-p">Дата</p>
+                        <p class="calculator__list-header-p">Начислено %</p>
+                        <p class="calculator__list-header-p">Операции</p>
+                        <p class="calculator__list-header-p">Остаток вклада</p>
+                      </div>
+                      <div class="calculator__list-content">
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.05.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">-</p>
+                          <p class="calculator__list-item-p" data-name="Операции">+ 1 000 000,00</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 000 000,00</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.06.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">8 493,15</p>
+                          <p class="calculator__list-item-p" data-name="Операции">+ 8 493,15</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 008 493,15</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.07.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">-</p>
+                          <p class="calculator__list-item-p green" data-name="Операции">+ 100 000,00</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 108 493,15</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.07.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">8 288,98</p>
+                          <p class="calculator__list-item-p" data-name="Операции">+ 8 288,98</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 116 782,13</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.08.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">-</p>
+                          <p class="calculator__list-item-p red" data-name="Операции">- 50 000,00</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 066 782,13</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.08.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">9 485,00</p>
+                          <p class="calculator__list-item-p" data-name="Операции">+ 9 485,00</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 076 267,13</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.09.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">9 140,90</p>
+                          <p class="calculator__list-item-p" data-name="Операции">+ 9 140,90</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 085 408,03</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.10.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">8 921,16</p>
+                          <p class="calculator__list-item-p" data-name="Операции">+ 8 921,16</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 094 329,19</p>
+                        </div>
+                        <div class="calculator__list-item"> 
+                          <p class="calculator__list-item-p" data-name="Дата">30.11.2022</p>
+                          <p class="calculator__list-item-p" data-name="Начислено %">9 294,30</p>
+                          <p class="calculator__list-item-p" data-name="Операции">+ 9 294,30</p>
+                          <p class="calculator__list-item-p" data-name="Остаток вклада">1 103 623,49</p>
                         </div>
                       </div>
                     </div>
@@ -142,6 +209,6 @@
                 </div>
       </main>
     </div>
-    <script src="js/app.min.js?_v=20220611191909"> </script>
+    <script src="js/app.min.js?_v=20220611221528"> </script>
   </body>
 </html>
