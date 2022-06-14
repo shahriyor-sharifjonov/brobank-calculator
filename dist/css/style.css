@@ -380,9 +380,14 @@
 }
 
 .calculator__list {
+  display: none;
   margin-left: -100px;
   margin-right: -100px;
   width: calc(100% + 200px);
+}
+
+.calculator__list.active {
+  display: block;
 }
 
 .calculator__list .calculator-title {

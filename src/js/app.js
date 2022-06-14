@@ -54,3 +54,15 @@ ranges.forEach((el) => {
     el.style.background = `linear-gradient(to right, #176EAE ${percent}%, transparent ${percent}%)`;
   });
 });
+
+const graphBtn = document.querySelector(".calculator__footer-btn");
+const graphCon = document.querySelector(".calculator__list");
+let graphOpen = false;
+
+graphBtn.addEventListener("click", () => {
+  graphCon.classList.toggle("active");
+  graphOpen = !graphOpen;
+  graphOpen
+    ? (graphBtn.innerHTML = "Скрыть график выплат")
+    : (graphBtn.innerHTML = "Показать график выплат");
+});
