@@ -39,42 +39,7 @@ mixin calculator()
                                 li.dropdown__list-item.dropdown__list-item_active(data-value="Раз в месяц") Раз в месяц
                                 li.dropdown__list-item(data-value="Раз в году") Раз в году
                             input(type="text" name="select-withdraw" value="").dropdown__input_hidden
-            .calculator__withdraw 
-                .calculator-title #[p Пополнение 1]
-                    button(type='button').calculator__withdraw-delete Удалить
-                .calculator__withdraw-form  
-                    .calculator__withdraw-item
-                        p.calculator__withdraw-label Сумма
-                        input(type="text" value="100 000 ₽").calculator__withdraw-input
-                    .calculator__withdraw-item
-                        p.calculator__withdraw-label Дата
-                        input(type="text" value="30.07.2022").calculator__withdraw-input
-                    .calculator__withdraw-item
-                        p.calculator__withdraw-label Периодичность
-                        .dropdown 
-                            button(type='button').dropdown__button Разовое
-                            ul.dropdown__list 
-                                li.dropdown__list-item(data-value="Не разовое") Не разовое
-                                li.dropdown__list-item.dropdown__list-item_active(data-value="Разовое") Разовое
-                            input(type="text" name="select-period" value="").dropdown__input_hidden
-            .calculator__withdraw 
-                .calculator-title #[p Снятие 1]
-                    button(type='button').calculator__withdraw-delete Удалить
-                .calculator__withdraw-form  
-                    .calculator__withdraw-item
-                        p.calculator__withdraw-label Сумма
-                        input(type="text" value="100 000 ₽").calculator__withdraw-input
-                    .calculator__withdraw-item
-                        p.calculator__withdraw-label Дата
-                        input(type="text" value="30.09.2022").calculator__withdraw-input
-                    .calculator__withdraw-item
-                        p.calculator__withdraw-label Периодичность
-                        .dropdown 
-                            button(type='button').dropdown__button Разовое
-                            ul.dropdown__list 
-                                li.dropdown__list-item(data-value="Не разовое") Не разовое
-                                li.dropdown__list-item.dropdown__list-item_active(data-value="Разовое") Разовое
-                            input(type="text" name="select-period" value="").dropdown__input_hidden
+            .calculator__withdraws 
             .calculator__list 
                 .calculator-title #[p График выплат]
                 .calculator__list-header
@@ -131,8 +96,8 @@ mixin calculator()
             .calculator__footer 
                 .calculator__footer-item.calculator__results
                     .calculator__footer-action 
-                        button(type='button').calculator__footer-action-btn Добавить пополнение  
-                        button(type='button').calculator__footer-action-btn Добавить снятие  
+                        button(type='button').calculator__footer-action-btn#addReplenishment Добавить пополнение  
+                        button(type='button').calculator__footer-action-btn#addWithdrawal Добавить снятие  
                     .calculator__footer-result
                         p.calculator__footer-result-label Сумма в конце 
                         p.calculator__footer-result-p#endresult 1 100 000 ₽ 

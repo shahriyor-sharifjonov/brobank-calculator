@@ -8,7 +8,6 @@
     padding: 60px 100px;
     display: flex;
     flex-direction: column;
-    row-gap: 40px;
     @include media(1200) {
       padding: 60px;
     }
@@ -32,6 +31,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    margin-bottom: 40px;
   }
   &__range {
     width: 100%;
@@ -189,6 +189,11 @@
     }
   }
   &__withdraw {
+    margin-bottom: 40px;
+    &s {
+      display: flex;
+      flex-direction: column;
+    }
     &-delete {
       transition: 300ms ease-out;
       font-weight: 400;
@@ -235,8 +240,9 @@
     display: none;
     margin-left: -100px;
     margin-right: -100px;
+    margin-bottom: 40px;
     width: calc(100% + 200px);
-    &.active{
+    &.active {
       display: block;
     }
     @include media(1200) {
