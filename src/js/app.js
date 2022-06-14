@@ -66,3 +66,12 @@ graphBtn.addEventListener("click", () => {
     ? (graphBtn.innerHTML = "Скрыть график выплат")
     : (graphBtn.innerHTML = "Показать график выплат");
 });
+
+const items = document.querySelectorAll(".calculator__withdraw");
+
+items.forEach((el) => {
+  const btn = el.querySelector(".calculator__withdraw-delete");
+  btn.addEventListener("click", () => {
+    el.remove();
+  });
+});
