@@ -5,6 +5,13 @@ let replenishment = "";
 let withdrawal = "";
 let replenishmentId = 1;
 let withdrawalId = 1;
+let depositAmount = document.querySelector("#depositAmount").value;
+let depositTerm = document.querySelector("#depositTerm").value;
+
+const setVars = () => {
+  depositAmount = document.querySelector("#depositAmount").value;
+  depositTerm = document.querySelector("#depositTerm").value;
+};
 
 const isWebp = () => {
   function testWebP(callback) {
@@ -68,9 +75,16 @@ const setRanges = () => {
   const ranges = document.querySelectorAll(".calculator__range");
 
   ranges.forEach((el) => {
+    const parent = el.parentElement;
+    const value = parent.querySelector(".calculator__input");
+    const suffix = el.getAttribute("data-suffix");
     el.addEventListener("input", () => {
+      setVars();
       let percent = ((el.value - el.min) * 100) / (el.max - el.min) - 0.1;
       el.style.background = `linear-gradient(to right, #176EAE ${percent}%, transparent ${percent}%)`;
+      value.value = `${el.value
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ${suffix}`;
     });
   });
 };

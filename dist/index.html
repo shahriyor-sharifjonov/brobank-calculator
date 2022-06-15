@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css?_v=20220614214841">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220615132654">
     <title>Document</title>
   </head>
   <body> 
@@ -17,14 +17,14 @@
                         <div class="calculator__block">
                           <p class="calculator__label">Сумма вклада</p>
                           <input class="calculator__input" type="text" placeholder="10 000 ₽" value="10 000 ₽" disabled>
-                          <input class="calculator__range" type="range" value="6" min="10000" max="10000000" step="10000" data-suffix="₽">
+                          <input class="calculator__range" type="range" value="6" min="10000" max="10000000" step="10000" data-suffix="₽" id="depositAmount">
                         </div>
                       </div>
                       <div class="calculator__line calculator__line_large"> 
                         <div class="calculator__block">
                           <p class="calculator__label">Срок вклада</p>
                           <input class="calculator__input" type="text" placeholder="6 мес." value="6 мес." disabled>
-                          <input class="calculator__range" type="range" value="6" min="6" max="60" step="1" data-suffix="мес.">
+                          <input class="calculator__range" type="range" value="6" min="6" max="60" step="1" data-suffix="мес." id="depositTerm">
                         </div>
                       </div>
                       <div class="calculator__line"> 
@@ -156,6 +156,6 @@
                 </div>
       </main>
     </div>
-    <script src="js/app.min.js?_v=20220614214841"> </script>
+    <script src="js/app.min.js?_v=20220615132654"> </script>
   </body>
 </html>
