@@ -6,38 +6,40 @@ mixin calculator()
                     .calculator__block
                         p.calculator__label Сумма вклада
                         input(type="text" placeholder="10 000 ₽" value="10 000 ₽" disabled).calculator__input
-                        input(type="range" value="6" min="10000" max="10000000" step="10000" data-suffix="₽")#depositAmount.calculator__range
+                        input(type="range" value="6" min="10000" max="30000000" step="10000" data-suffix="₽")#depositAmount.calculator__range
                 .calculator__line.calculator__line_large 
                     .calculator__block
                         p.calculator__label Срок вклада
                         input(type="text" placeholder="6 мес." value="6 мес." disabled).calculator__input
-                        input(type="range" value="6" min="6" max="60" step="1" data-suffix="мес.")#depositTerm.calculator__range
+                        input(type="range" value="6" min="6" max="60" step="3" data-suffix="мес.")#depositTerm.calculator__range
                 .calculator__line 
                     .calculator__item 
                         p.calculator__label Процентная ставка, в год
-                        input(type="text" placeholder="10,00%" value="10,00%").calculator__input
+                        input(type="text" placeholder="10%" value="10%" disabled).calculator__input
                     .calculator__item 
                         p.calculator__label Дата открытия
-                        input(type="text" placeholder="30.05.2022" value="30.05.2022").calculator__input
+                        input(type="text" placeholder="30.05.2022" value="30.05.2022" disabled).calculator__input#depositDate
                 .calculator__line 
                     .calculator__item 
                         p.calculator__label Начисленные проценты
                         .dropdown 
-                            button(type='button').dropdown__button Оставлять на вк..
+                            button(type='button').dropdown__button Оставлять на вкладе
                             ul.dropdown__list 
-                                li.dropdown__list-item(data-value="Оставлять на вк..") Оставлять на вк..
-                                li.dropdown__list-item.dropdown__list-item_active(data-value="Оставлять на вк..") Оставлять на вк..
-                                li.dropdown__list-item(data-value="Оставлять на вк..") Оставлять на вк..
-                                li.dropdown__list-item(data-value="Оставлять на вк..") Оставлять на вк..
+                                li.dropdown__list-item.dropdown__list-item_active(data-value="Оставлять на вкладе") Оставлять на вкладе
+                                li.dropdown__list-item(data-value="Выплачивать") Выплачивать
                             input(type="text" name="select-percents" value="").dropdown__input_hidden
                     .calculator__item
                         p.calculator__label Периодичность выплат
                         .dropdown 
                             button(type='button').dropdown__button Раз в месяц
                             ul.dropdown__list 
-                                li.dropdown__list-item(data-value="Раз в неделю") Раз в неделю
+                                li.dropdown__list-item(data-value="Каждый день") Каждый день
+                                li.dropdown__list-item(data-value="Каждую неделю") Каждую неделю
                                 li.dropdown__list-item.dropdown__list-item_active(data-value="Раз в месяц") Раз в месяц
-                                li.dropdown__list-item(data-value="Раз в году") Раз в году
+                                li.dropdown__list-item(data-value="Раз в квартал") Раз в квартал
+                                li.dropdown__list-item(data-value="Раз в полгода") Раз в полгода
+                                li.dropdown__list-item(data-value="Раз в год") Раз в год
+                                li.dropdown__list-item(data-value="В конце срока") В конце срока
                             input(type="text" name="select-withdraw" value="").dropdown__input_hidden
             .calculator__withdraws 
             .calculator__list 
@@ -100,9 +102,9 @@ mixin calculator()
                         button(type='button').calculator__footer-action-btn#addWithdrawal Добавить снятие  
                     .calculator__footer-result
                         p.calculator__footer-result-label Сумма в конце 
-                        p.calculator__footer-result-p#endresult 1 100 000 ₽ 
+                        p.calculator__footer-result-p#endResult 1 100 000 ₽ 
                     .calculator__footer-result
                         p.calculator__footer-result-label Доход за 1 год 
-                        p.calculator__footer-result-p#yearresult 100 000 ₽ 
+                        p.calculator__footer-result-p#yearResult 100 000 ₽ 
                 .calculator__footer-item
                     button(type='button').calculator__footer-btn Показать график выплат 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css?_v=20220615132654">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220615173925">
     <title>Document</title>
   </head>
   <body> 
@@ -17,36 +17,34 @@
                         <div class="calculator__block">
                           <p class="calculator__label">Сумма вклада</p>
                           <input class="calculator__input" type="text" placeholder="10 000 ₽" value="10 000 ₽" disabled>
-                          <input class="calculator__range" type="range" value="6" min="10000" max="10000000" step="10000" data-suffix="₽" id="depositAmount">
+                          <input class="calculator__range" type="range" value="6" min="10000" max="30000000" step="10000" data-suffix="₽" id="depositAmount">
                         </div>
                       </div>
                       <div class="calculator__line calculator__line_large"> 
                         <div class="calculator__block">
                           <p class="calculator__label">Срок вклада</p>
                           <input class="calculator__input" type="text" placeholder="6 мес." value="6 мес." disabled>
-                          <input class="calculator__range" type="range" value="6" min="6" max="60" step="1" data-suffix="мес." id="depositTerm">
+                          <input class="calculator__range" type="range" value="6" min="6" max="60" step="3" data-suffix="мес." id="depositTerm">
                         </div>
                       </div>
                       <div class="calculator__line"> 
                         <div class="calculator__item"> 
                           <p class="calculator__label">Процентная ставка, в год</p>
-                          <input class="calculator__input" type="text" placeholder="10,00%" value="10,00%">
+                          <input class="calculator__input" type="text" placeholder="10%" value="10%" disabled>
                         </div>
                         <div class="calculator__item"> 
                           <p class="calculator__label">Дата открытия</p>
-                          <input class="calculator__input" type="text" placeholder="30.05.2022" value="30.05.2022">
+                          <input class="calculator__input" type="text" placeholder="30.05.2022" value="30.05.2022" disabled id="depositDate">
                         </div>
                       </div>
                       <div class="calculator__line"> 
                         <div class="calculator__item"> 
                           <p class="calculator__label">Начисленные проценты</p>
                           <div class="dropdown"> 
-                            <button class="dropdown__button" type="button">Оставлять на вк..</button>
+                            <button class="dropdown__button" type="button">Оставлять на вкладе</button>
                             <ul class="dropdown__list"> 
-                              <li class="dropdown__list-item" data-value="Оставлять на вк..">Оставлять на вк..</li>
-                              <li class="dropdown__list-item dropdown__list-item_active" data-value="Оставлять на вк..">Оставлять на вк..</li>
-                              <li class="dropdown__list-item" data-value="Оставлять на вк..">Оставлять на вк..</li>
-                              <li class="dropdown__list-item" data-value="Оставлять на вк..">Оставлять на вк..</li>
+                              <li class="dropdown__list-item dropdown__list-item_active" data-value="Оставлять на вкладе">Оставлять на вкладе</li>
+                              <li class="dropdown__list-item" data-value="Выплачивать">Выплачивать</li>
                             </ul>
                             <input class="dropdown__input_hidden" type="text" name="select-percents" value="">
                           </div>
@@ -56,9 +54,13 @@
                           <div class="dropdown"> 
                             <button class="dropdown__button" type="button">Раз в месяц</button>
                             <ul class="dropdown__list"> 
-                              <li class="dropdown__list-item" data-value="Раз в неделю">Раз в неделю</li>
+                              <li class="dropdown__list-item" data-value="Каждый день">Каждый день</li>
+                              <li class="dropdown__list-item" data-value="Каждую неделю">Каждую неделю</li>
                               <li class="dropdown__list-item dropdown__list-item_active" data-value="Раз в месяц">Раз в месяц</li>
-                              <li class="dropdown__list-item" data-value="Раз в году">Раз в году</li>
+                              <li class="dropdown__list-item" data-value="Раз в квартал">Раз в квартал</li>
+                              <li class="dropdown__list-item" data-value="Раз в полгода">Раз в полгода</li>
+                              <li class="dropdown__list-item" data-value="Раз в год">Раз в год</li>
+                              <li class="dropdown__list-item" data-value="В конце срока">В конце срока</li>
                             </ul>
                             <input class="dropdown__input_hidden" type="text" name="select-withdraw" value="">
                           </div>
@@ -141,11 +143,11 @@
                         </div>
                         <div class="calculator__footer-result">
                           <p class="calculator__footer-result-label">Сумма в конце </p>
-                          <p class="calculator__footer-result-p" id="endresult">1 100 000 ₽ </p>
+                          <p class="calculator__footer-result-p" id="endResult">1 100 000 ₽ </p>
                         </div>
                         <div class="calculator__footer-result">
                           <p class="calculator__footer-result-label">Доход за 1 год </p>
-                          <p class="calculator__footer-result-p" id="yearresult">100 000 ₽ </p>
+                          <p class="calculator__footer-result-p" id="yearResult">100 000 ₽ </p>
                         </div>
                       </div>
                       <div class="calculator__footer-item">
@@ -156,6 +158,6 @@
                 </div>
       </main>
     </div>
-    <script src="js/app.min.js?_v=20220615132654"> </script>
+    <script src="js/app.min.js?_v=20220615173925"> </script>
   </body>
 </html>

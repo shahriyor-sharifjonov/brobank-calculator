@@ -1,16 +1,61 @@
+const formatWithSpaces = (num, symbol) => {
+  return `${num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ${symbol}`;
+};
+
 const itemWrapper = document.querySelector(".calculator__withdraws");
 const addReplenishment = document.querySelector("#addReplenishment");
 const addWithdrawal = document.querySelector("#addWithdrawal");
+let percentForYear = 10;
+let percentForMonth = percentForYear / 12;
 let replenishment = "";
 let withdrawal = "";
 let replenishmentId = 1;
 let withdrawalId = 1;
+
 let depositAmount = document.querySelector("#depositAmount").value;
 let depositTerm = document.querySelector("#depositTerm").value;
+let depositDate = document.querySelector("#depositDate");
+
+let endResult = document.querySelector("#endResult");
+let yearResult = document.querySelector("#yearResult");
+
+let income = (depositAmount * percentForYear) / 100;
+let formattedIncome = formatWithSpaces(income, "₽");
+
+let incomeForYear = Math.round(
+  ((depositAmount * percentForMonth) / 100) * depositTerm
+);
+
+let incomeResult = Number(depositAmount) + Number(income);
+let formattedIncomeResult = formatWithSpaces(incomeResult, "₽");
+
+let depositEndResult = Number(incomeForYear) + Number(depositAmount);
+let formattedDepositEndResult = formatWithSpaces(depositEndResult, "₽");
+
+yearResult.innerHTML = formattedIncome;
+endResult.innerHTML = formattedIncomeResult;
+
+const today = new Date();
+depositDate.value = today.toLocaleDateString("ru-RU", {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+});
 
 const setVars = () => {
   depositAmount = document.querySelector("#depositAmount").value;
   depositTerm = document.querySelector("#depositTerm").value;
+  income = (depositAmount * 10) / 100;
+  formattedIncome = formatWithSpaces(income, "₽");
+  yearResult.innerHTML = formattedIncome;
+  incomeResult = Number(depositAmount) + Number(income);
+  formattedIncomeResult = formatWithSpaces(incomeResult, "₽");
+  incomeForYear = Math.round(
+    ((depositAmount * percentForMonth) / 100) * depositTerm
+  );
+  depositEndResult = Number(incomeForYear) + Number(depositAmount);
+  formattedDepositEndResult = formatWithSpaces(depositEndResult, "₽");
+  endResult.innerHTML = formattedDepositEndResult;
 };
 
 const isWebp = () => {
