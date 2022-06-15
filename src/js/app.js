@@ -12,6 +12,8 @@ let withdrawal = "";
 let replenishmentId = 1;
 let withdrawalId = 1;
 
+let symbol = "$";
+
 let depositAmount = document.querySelector("#depositAmount").value;
 let depositTerm = document.querySelector("#depositTerm").value;
 let depositDate = document.querySelector("#depositDate");
@@ -20,17 +22,17 @@ let endResult = document.querySelector("#endResult");
 let yearResult = document.querySelector("#yearResult");
 
 let income = (depositAmount * percentForYear) / 100;
-let formattedIncome = formatWithSpaces(income, "₽");
+let formattedIncome = formatWithSpaces(income, symbol);
 
 let incomeForYear = Math.round(
   ((depositAmount * percentForMonth) / 100) * depositTerm
 );
 
 let incomeResult = Number(depositAmount) + Number(income);
-let formattedIncomeResult = formatWithSpaces(incomeResult, "₽");
+let formattedIncomeResult = formatWithSpaces(incomeResult, symbol);
 
 let depositEndResult = Number(incomeForYear) + Number(depositAmount);
-let formattedDepositEndResult = formatWithSpaces(depositEndResult, "₽");
+let formattedDepositEndResult = formatWithSpaces(depositEndResult, symbol);
 
 yearResult.innerHTML = formattedIncome;
 endResult.innerHTML = formattedIncomeResult;
@@ -46,15 +48,15 @@ const setVars = () => {
   depositAmount = document.querySelector("#depositAmount").value;
   depositTerm = document.querySelector("#depositTerm").value;
   income = (depositAmount * 10) / 100;
-  formattedIncome = formatWithSpaces(income, "₽");
+  formattedIncome = formatWithSpaces(income, symbol);
   yearResult.innerHTML = formattedIncome;
   incomeResult = Number(depositAmount) + Number(income);
-  formattedIncomeResult = formatWithSpaces(incomeResult, "₽");
+  formattedIncomeResult = formatWithSpaces(incomeResult, symbol);
   incomeForYear = Math.round(
     ((depositAmount * percentForMonth) / 100) * depositTerm
   );
   depositEndResult = Number(incomeForYear) + Number(depositAmount);
-  formattedDepositEndResult = formatWithSpaces(depositEndResult, "₽");
+  formattedDepositEndResult = formatWithSpaces(depositEndResult, symbol);
   endResult.innerHTML = formattedDepositEndResult;
 };
 
@@ -122,7 +124,9 @@ const setRanges = () => {
   ranges.forEach((el) => {
     const parent = el.parentElement;
     const value = parent.querySelector(".calculator__input");
-    const suffix = el.getAttribute("data-suffix");
+    const suffix = el.getAttribute("data-suffix")
+      ? el.getAttribute("data-suffix")
+      : "";
     el.addEventListener("input", () => {
       setVars();
       let percent = ((el.value - el.min) * 100) / (el.max - el.min) - 0.1;
