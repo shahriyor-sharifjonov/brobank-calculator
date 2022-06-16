@@ -12,7 +12,7 @@ let withdrawal = "";
 let replenishmentId = 1;
 let withdrawalId = 1;
 
-let symbol = "$";
+let symbol = "₽";
 
 let depositAmount = document.querySelector("#depositAmount").value;
 let depositTerm = document.querySelector("#depositTerm").value;
