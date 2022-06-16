@@ -255,7 +255,6 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 
 if (document.querySelector(".choose-symbol")) {
   const buttons = document.querySelectorAll(".choose-symbol");
-  const value = document.querySelectorAll(".value-symbol");
   buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
       symbol = e.target.getAttribute("data-value");
