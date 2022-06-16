@@ -64,6 +64,19 @@
   }
   &__block {
     width: 100%;
+    &-wrapper {
+      position: relative;
+      .dropdown {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 100%;
+        &__button {
+          border-radius: 0 8px 8px 0;
+        }
+      }
+    }
   }
   &__item {
     width: calc(50% - 15px);
