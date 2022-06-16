@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css?_v=20220616155226">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220616184100">
     <title>Document</title>
   </head>
   <body> 
@@ -17,16 +17,16 @@
                         <div class="calculator__block">
                           <p class="calculator__label">Сумма вклада</p>
                           <div class="calculator__block-wrapper">
-                            <input class="calculator__input" type="text" placeholder="10 000" value="10 000" disabled>
+                            <input class="calculator__input z" type="text" placeholder="10 000" value="10 000" disabled>
                             <input class="calculator__range" type="range" value="6" min="10000" max="30000000" step="10000" id="depositAmount">
-                            <div class="dropdown"> 
-                              <button class="dropdown__button" type="button">₽</button>
+                            <div class="dropdown symbol-drop"> 
+                              <button class="dropdown__button value-symbol" type="button">₽</button>
                               <ul class="dropdown__list"> 
-                                <li class="dropdown__list-item dropdown__list-item_active" data-value="₽">₽</li>
-                                <li class="dropdown__list-item" data-value="$">$</li>
-                                <li class="dropdown__list-item" data-value="€">€</li>
+                                <li class="dropdown__list-item dropdown__list-item_active choose-symbol" data-value="₽">₽</li>
+                                <li class="dropdown__list-item choose-symbol" data-value="$">$</li>
+                                <li class="dropdown__list-item choose-symbol" data-value="€">€</li>
                               </ul>
-                              <input class="dropdown__input_hidden" type="text" name="select-percents" value="">
+                              <input class="dropdown__input_hidden" type="text" name="select-symbol" value="₽">
                             </div>
                           </div>
                         </div>
@@ -169,6 +169,6 @@
                 </div>
       </main>
     </div>
-    <script src="js/app.min.js?_v=20220616155226"> </script>
+    <script src="js/app.min.js?_v=20220616184100"> </script>
   </body>
 </html>

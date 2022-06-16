@@ -244,6 +244,26 @@ addWithdrawal.addEventListener("click", () => {
   setDropdowns();
 });
 
+if (window.NodeList && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = function (callback, thisArg) {
+    thisArg = thisArg || window;
+    for (var i = 0; i < this.length; i++) {
+      callback.call(thisArg, this[i], i, this);
+    }
+  };
+}
+
+if (document.querySelector(".choose-symbol")) {
+  const buttons = document.querySelectorAll(".choose-symbol");
+  const value = document.querySelectorAll(".value-symbol");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      symbol = e.target.getAttribute("data-value");
+      setVars();
+    });
+  });
+}
+
 isWebp();
 setDropdowns();
 setRanges();

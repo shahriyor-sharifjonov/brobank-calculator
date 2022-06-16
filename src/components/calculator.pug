@@ -6,15 +6,15 @@ mixin calculator()
                     .calculator__block
                         p.calculator__label Сумма вклада
                         .calculator__block-wrapper
-                            input(type="text" placeholder="10 000" value="10 000" disabled).calculator__input
+                            input(type="text" placeholder="10 000" value="10 000" disabled).calculator__input.z
                             input(type="range" value="6" min="10000" max="30000000" step="10000")#depositAmount.calculator__range
-                            .dropdown 
-                                button(type='button').dropdown__button ₽
+                            .dropdown.symbol-drop 
+                                button(type='button').dropdown__button.value-symbol ₽
                                 ul.dropdown__list 
-                                    li.dropdown__list-item.dropdown__list-item_active(data-value="₽") ₽
-                                    li.dropdown__list-item(data-value="$") $
-                                    li.dropdown__list-item(data-value="€") €
-                                input(type="text" name="select-percents" value="").dropdown__input_hidden
+                                    li.dropdown__list-item.dropdown__list-item_active(data-value="₽").choose-symbol ₽
+                                    li.dropdown__list-item(data-value="$").choose-symbol $
+                                    li.dropdown__list-item(data-value="€").choose-symbol €
+                                input(type="text" name="select-symbol" value="₽").dropdown__input_hidden
                 .calculator__line.calculator__line_large 
                     .calculator__block
                         p.calculator__label Срок вклада
