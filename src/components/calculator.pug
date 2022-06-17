@@ -25,12 +25,12 @@ mixin calculator()
                         p.calculator__label Процентная ставка, в год
                         input(type="text" placeholder="10%" value="10%" disabled).calculator__input
                     .calculator__item 
-                        p.calculator__label Дата открытия
+                        p.calculator__label Дата открытия 
                         input(type="text" placeholder="30.05.2022" value="30.05.2022" disabled).calculator__input#depositDate
                 .calculator__line 
                     .calculator__item 
                         p.calculator__label Начисленные проценты
-                        .dropdown 
+                        .dropdown.calc-charges 
                             button(type='button').dropdown__button Оставлять на вкладе
                             ul.dropdown__list 
                                 li.dropdown__list-item.dropdown__list-item_active(data-value="Оставлять на вкладе") Оставлять на вкладе
@@ -41,13 +41,12 @@ mixin calculator()
                         .dropdown 
                             button(type='button').dropdown__button Раз в месяц
                             ul.dropdown__list 
-                                li.dropdown__list-item(data-value="Каждый день") Каждый день
-                                li.dropdown__list-item(data-value="Каждую неделю") Каждую неделю
-                                li.dropdown__list-item.dropdown__list-item_active(data-value="Раз в месяц") Раз в месяц
-                                li.dropdown__list-item(data-value="Раз в квартал") Раз в квартал
-                                li.dropdown__list-item(data-value="Раз в полгода") Раз в полгода
-                                li.dropdown__list-item(data-value="Раз в год") Раз в год
-                                li.dropdown__list-item(data-value="В конце срока") В конце срока
+                                li.dropdown__list-item(data-value="Каждый день").calc-frequency Каждый день
+                                li.dropdown__list-item(data-value="Каждую неделю").calc-frequency Каждую неделю
+                                li.dropdown__list-item.dropdown__list-item_active(data-value="Раз в месяц").calc-frequency Раз в месяц
+                                li.dropdown__list-item(data-value="Раз в квартал").calc-frequency Раз в квартал
+                                li.dropdown__list-item(data-value="Раз в полгода").calc-frequency Раз в полгода
+                                li.dropdown__list-item(data-value="Раз в год").calc-frequency Раз в год
                             input(type="text" name="select-withdraw" value="").dropdown__input_hidden
             .calculator__withdraws 
             .calculator__list 

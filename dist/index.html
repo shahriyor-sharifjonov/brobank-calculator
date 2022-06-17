@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.min.css?_v=20220616184100">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220617201610">
     <title>Document</title>
   </head>
   <body> 
@@ -44,14 +44,14 @@
                           <input class="calculator__input" type="text" placeholder="10%" value="10%" disabled>
                         </div>
                         <div class="calculator__item"> 
-                          <p class="calculator__label">Дата открытия</p>
+                          <p class="calculator__label">Дата открытия </p>
                           <input class="calculator__input" type="text" placeholder="30.05.2022" value="30.05.2022" disabled id="depositDate">
                         </div>
                       </div>
                       <div class="calculator__line"> 
                         <div class="calculator__item"> 
                           <p class="calculator__label">Начисленные проценты</p>
-                          <div class="dropdown"> 
+                          <div class="dropdown calc-charges"> 
                             <button class="dropdown__button" type="button">Оставлять на вкладе</button>
                             <ul class="dropdown__list"> 
                               <li class="dropdown__list-item dropdown__list-item_active" data-value="Оставлять на вкладе">Оставлять на вкладе</li>
@@ -65,13 +65,12 @@
                           <div class="dropdown"> 
                             <button class="dropdown__button" type="button">Раз в месяц</button>
                             <ul class="dropdown__list"> 
-                              <li class="dropdown__list-item" data-value="Каждый день">Каждый день</li>
-                              <li class="dropdown__list-item" data-value="Каждую неделю">Каждую неделю</li>
-                              <li class="dropdown__list-item dropdown__list-item_active" data-value="Раз в месяц">Раз в месяц</li>
-                              <li class="dropdown__list-item" data-value="Раз в квартал">Раз в квартал</li>
-                              <li class="dropdown__list-item" data-value="Раз в полгода">Раз в полгода</li>
-                              <li class="dropdown__list-item" data-value="Раз в год">Раз в год</li>
-                              <li class="dropdown__list-item" data-value="В конце срока">В конце срока</li>
+                              <li class="dropdown__list-item calc-frequency" data-value="Каждый день">Каждый день</li>
+                              <li class="dropdown__list-item calc-frequency" data-value="Каждую неделю">Каждую неделю</li>
+                              <li class="dropdown__list-item dropdown__list-item_active calc-frequency" data-value="Раз в месяц">Раз в месяц</li>
+                              <li class="dropdown__list-item calc-frequency" data-value="Раз в квартал">Раз в квартал</li>
+                              <li class="dropdown__list-item calc-frequency" data-value="Раз в полгода">Раз в полгода</li>
+                              <li class="dropdown__list-item calc-frequency" data-value="Раз в год">Раз в год</li>
                             </ul>
                             <input class="dropdown__input_hidden" type="text" name="select-withdraw" value="">
                           </div>
@@ -169,6 +168,6 @@
                 </div>
       </main>
     </div>
-    <script src="js/app.min.js?_v=20220616184100"> </script>
+    <script src="js/app.min.js?_v=20220617201610"> </script>
   </body>
 </html>

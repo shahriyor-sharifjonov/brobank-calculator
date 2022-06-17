@@ -5,17 +5,32 @@ const formatWithSpaces = (num, symbol) => {
 const itemWrapper = document.querySelector(".calculator__withdraws");
 const addReplenishment = document.querySelector("#addReplenishment");
 const addWithdrawal = document.querySelector("#addWithdrawal");
-let percentForYear = 10;
-let percentForMonth = percentForYear / 12;
+
+const now = new Date();
+
+const depositStartDate = now.toLocaleDateString();
+
+const percentForYear = 10;
+const percentForMonth = percentForYear / 12;
+const percentForDay = percentForMonth / 30;
+const percentForWeek = percentForDay * 7;
+const percentFor3Month = percentForMonth * 3;
+const percentFor6Month = percentFor3Month * 2;
+
 let replenishment = "";
 let withdrawal = "";
 let replenishmentId = 1;
 let withdrawalId = 1;
 
 let symbol = "₽";
+let frequencyList = ['Каждый день', 'Каждую неделю', 'Раз в месяц', 'Раз в квартал', 'Раз в полгода', 'Раз в год'];
+let frequency = frequencyList[2];
+let chargesList = ['Оставлять на вкладе', 'Выплачивать'];
+let charges = chargesList[0];
 
 let depositAmount = document.querySelector("#depositAmount").value;
 let depositTerm = document.querySelector("#depositTerm").value;
+
 let depositDate = document.querySelector("#depositDate");
 
 let endResult = document.querySelector("#endResult");
@@ -35,14 +50,9 @@ let depositEndResult = Number(incomeForYear) + Number(depositAmount);
 let formattedDepositEndResult = formatWithSpaces(depositEndResult, symbol);
 
 yearResult.innerHTML = formattedIncome;
-endResult.innerHTML = formattedIncomeResult;
+endResult.innerHTML = formattedDepositEndResult;
 
-const today = new Date();
-depositDate.value = today.toLocaleDateString("ru-RU", {
-  day: "numeric",
-  month: "numeric",
-  year: "numeric",
-});
+depositDate.value = depositStartDate;
 
 const setVars = () => {
   depositAmount = document.querySelector("#depositAmount").value;
@@ -52,12 +62,11 @@ const setVars = () => {
   yearResult.innerHTML = formattedIncome;
   incomeResult = Number(depositAmount) + Number(income);
   formattedIncomeResult = formatWithSpaces(incomeResult, symbol);
-  incomeForYear = Math.round(
-    ((depositAmount * percentForMonth) / 100) * depositTerm
-  );
+  incomeForYear = ((depositAmount * percentForMonth) / 100) * depositTerm;
   depositEndResult = Number(incomeForYear) + Number(depositAmount);
   formattedDepositEndResult = formatWithSpaces(depositEndResult, symbol);
   endResult.innerHTML = formattedDepositEndResult;
+  calcGraphs();
 };
 
 const isWebp = () => {
@@ -263,6 +272,201 @@ if (document.querySelector(".choose-symbol")) {
   });
 }
 
+if (document.querySelector(".calc-frequency")) {
+  const buttons = document.querySelectorAll(".calc-frequency");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      for(let i = 0; i < frequencyList.length; i++){
+        if(frequencyList[i] === e.target.getAttribute("data-value")){
+          frequency = frequencyList[i]
+        }
+      }
+      setVars();
+    });
+  });
+}
+
+const calcGraphs = () => {
+  let dates = [{ date: now, accrued: "-", balance: formatWithSpaces(Number(depositAmount).toFixed(2), symbol), operation: ''}];
+  const oldDepositAmount = depositAmount;
+  // первые 10 строк
+  for (let i = 1; i < 11; i++) {
+    // Каждый день 
+    if (frequency === frequencyList[0]){
+      const accrued = Number(oldDepositAmount) * Number(percentForDay) / 100;
+      depositAmount = Number(depositAmount) + Number(accrued);
+      const balance = depositAmount;
+      dates.push({
+        date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + i),
+        accrued: formatWithSpaces(accrued.toFixed(2), symbol),
+        balance: formatWithSpaces(balance.toFixed(2), symbol),
+        operation: '+'
+      });
+    } 
+    // Каждую неделю 
+    else if (frequency === frequencyList[1]){
+      const accrued = Number(oldDepositAmount) * Number(percentForWeek) / 100;
+      depositAmount = Number(depositAmount) + Number(accrued);
+      const balance = depositAmount;
+      let week = 6;
+      week = week * i;
+      dates.push({
+        date: new Date(now.getFullYear(), now.getMonth(), now.getDate() + i + week),
+        accrued: formatWithSpaces(accrued.toFixed(2), symbol),
+        balance: formatWithSpaces(balance.toFixed(2), symbol),
+        operation: '+'
+      });
+    } 
+  }
+  // раз в месяц 
+  if (frequency === frequencyList[2]){
+    let term = 11;
+    if (depositTerm < 11) {
+      term = Number(depositTerm)+1;
+    } 
+    for (let i = 1; i < term; i++) {
+      const accrued = Number(oldDepositAmount) * Number(percentForMonth) / 100;
+      depositAmount = Number(depositAmount) + Number(accrued);
+      const balance = depositAmount;
+      dates.push({
+        date: new Date(now.getFullYear(), now.getMonth() + i, now.getDate()),
+        accrued: formatWithSpaces(accrued.toFixed(2), symbol),
+        balance: formatWithSpaces(balance.toFixed(2), symbol),
+        operation: '+'
+      });
+    }
+  }
+  // раз в квартал 
+  if (frequency === frequencyList[3]){
+    let term = 11;
+    if ((depositTerm / 3) < 11) {
+      term = Number(depositTerm)/3+1;
+    } 
+    for (let i = 1; i < term; i++) { 
+      const accrued = Number(oldDepositAmount) * Number(percentFor3Month) / 100;
+      depositAmount = Number(depositAmount) + Number(accrued);
+      const balance = depositAmount;
+      let month = 3;
+      month = month * i;
+      dates.push({
+        date: new Date(now.getFullYear(), now.getMonth() + month, now.getDate()),
+        accrued: formatWithSpaces(accrued.toFixed(2), symbol),
+        balance: formatWithSpaces(balance.toFixed(2), symbol),
+        operation: '+'
+      });
+    }
+  }
+  // Раз в полгода
+  if (frequency === frequencyList[4]){
+    let term = 11;
+    if ((depositTerm / 6) < 11) {
+      if ((depositTerm / 6) % 2 == 0 || (depositTerm / 6) % 2 == 1){
+        term = Number(depositTerm)/6+1;
+      }
+      else{
+        term = (Number(depositTerm)/6+1)-1;
+      }
+    } 
+    for (let i = 1; i < term; i++) {
+      const accrued = Number(oldDepositAmount) * Number(percentFor6Month) / 100;
+      depositAmount = Number(depositAmount) + Number(accrued);
+      const balance = depositAmount;
+      let month = 6;
+      month = month * i;
+      dates.push({
+        date: new Date(now.getFullYear(), now.getMonth() + month, now.getDate()),
+        accrued: formatWithSpaces(accrued.toFixed(2), symbol),
+        balance: formatWithSpaces(balance.toFixed(2), symbol),
+        operation: '+'
+      });
+    }
+  }
+  // Раз в год
+  if (frequency === frequencyList[5]){
+    let term = 11;
+    if ((depositTerm / 12) < 11) {
+      if ((depositTerm / 12) % 2 == 0 || (depositTerm / 12) % 2 == 1){
+        term = Number(depositTerm)/12+1;
+      }
+      else{
+        term = (Number(depositTerm)/12+1)-1;
+      }
+    } 
+    for (let i = 1; i < term; i++) {
+      const accrued = Number(oldDepositAmount) * Number(percentForYear) / 100;
+      depositAmount = Number(depositAmount) + Number(accrued);
+      const balance = depositAmount;
+      dates.push({
+        date: new Date(now.getFullYear() + i, now.getMonth(), now.getDate()),
+        accrued: formatWithSpaces(accrued.toFixed(2), symbol),
+        balance: formatWithSpaces(balance.toFixed(2), symbol),
+        operation: '+'
+      });
+    }
+  }
+
+  // // последние 10 строк
+  // for (let i = 1; i < 11; i++) {
+  //   const oldDepositAmount = depositAmount;
+  //   if(frequency === frequencyList[0]){
+  //     depositAmount = Number(depositAmount) + Number((Number(depositAmount) * percentForDay) / 100);
+  //     const customDate = new Date(now.getFullYear(), now.getMonth() + Number(depositTerm), now.getDate() - 10);
+  //     const accrued = (Number(depositAmount) - Number(oldDepositAmount)).toFixed(2);
+  //     const balance = (Number(depositAmount) + Number(accrued)).toFixed(2)
+  //     dates.push({
+  //       date: new Date(customDate.getFullYear(), customDate.getMonth(), customDate.getDate() + i),
+  //       accrued: formatWithSpaces(accrued, symbol),
+  //       balance: formatWithSpaces(balance, symbol),
+  operation: '+'
+  //     });
+  //   }
+  // }
+
+  // удалить дубли 
+  const uniqueDates = [];
+  const unique = dates.filter(el => {
+    const isDuplicate = uniqueDates.includes(el.date);
+    if(!isDuplicate) {
+      uniqueDates.push(el.date);
+      return true;
+    }
+    return false;
+  })
+
+  // сотрировка по дату
+  unique.sort(function (a, b) {
+    var c = new Date(a.date);
+    var d = new Date(b.date);
+    return c - d;
+  });
+
+  // отобразить данные в консоле
+//   for (let i = 0; i < unique.length; i++) {
+//     console.log(
+//       `data: ${unique[i]["date"].toLocaleDateString()} 
+// nachisleno: ${unique[i]["accrued"]} 
+// balance: ${unique[i]["balance"]}`
+//     );
+//   }
+
+  // отобразить данные в браузере
+  const lists = document.querySelectorAll('.calculator__list-content');
+  lists.forEach(el => {
+    el.innerHTML = "";
+    unique.map(item => {
+      const elem = document.createElement('div');
+      elem.innerHTML += `<div class="calculator__list-item"> 
+  <p class="calculator__list-item-p" data-name="Дата">${item['date'].toLocaleDateString()}</p>
+  <p class="calculator__list-item-p" data-name="Начислено %">${item['accrued']}</p>
+  <p class="calculator__list-item-p" data-name="Операции">${item['operation']} ${item['accrued']}</p>
+  <p class="calculator__list-item-p" data-name="Остаток вклада">${formatWithSpaces(item['balance'], '')}</p>
+</div>`
+      el.append(elem)
+    })
+  })
+};
+
+calcGraphs();
 isWebp();
 setDropdowns();
 setRanges();
