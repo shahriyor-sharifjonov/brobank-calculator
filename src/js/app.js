@@ -455,12 +455,11 @@ const calcGraphs = () => {
     el.innerHTML = "";
     unique.map(item => {
       const elem = document.createElement('div');
-      elem.innerHTML += `<div class="calculator__list-item"> 
-  <p class="calculator__list-item-p" data-name="Дата">${item['date'].toLocaleDateString()}</p>
-  <p class="calculator__list-item-p" data-name="Начислено %">${item['accrued']}</p>
-  <p class="calculator__list-item-p" data-name="Операции">${item['operation']} ${item['accrued']}</p>
-  <p class="calculator__list-item-p" data-name="Остаток вклада">${formatWithSpaces(item['balance'], '')}</p>
-</div>`
+      elem.classList.add('calculator__list-item');
+      elem.innerHTML += `<p class="calculator__list-item-p" data-name="Дата">${item['date'].toLocaleDateString()}</p>
+<p class="calculator__list-item-p" data-name="Начислено %">${item['accrued']}</p>
+<p class="calculator__list-item-p" data-name="Операции">${item['operation']} ${item['accrued']}</p>
+<p class="calculator__list-item-p" data-name="Остаток вклада">${formatWithSpaces(item['balance'], '')}</p>`
       el.append(elem)
     })
   })
