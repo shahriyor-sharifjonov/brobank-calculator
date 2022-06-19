@@ -184,7 +184,7 @@ const setReplenishment = (id) => {
       </div>
       <div class="calculator__withdraw-item">
         <p class="calculator__withdraw-label">Дата</p>
-        <input class="calculator__withdraw-input" type="text" value="30.07.2022">
+        <input class="calculator__withdraw-input date-input" maxlength="10" type="text" placeholder="30.07.2022">
       </div>
       <div class="calculator__withdraw-item">
         <p class="calculator__withdraw-label">Периодичность</p>
@@ -214,7 +214,7 @@ const setWithdrawal = (id) => {
       </div>
       <div class="calculator__withdraw-item">
         <p class="calculator__withdraw-label">Дата</p>
-        <input class="calculator__withdraw-input" type="text" value="30.09.2022">
+        <input class="calculator__withdraw-input date-input" maxlength="10" type="text" placeholder="30.09.2022">
       </div>
       <div class="calculator__withdraw-item">
         <p class="calculator__withdraw-label">Периодичность</p>
@@ -240,6 +240,7 @@ addReplenishment.addEventListener("click", () => {
   setReplenishment((replenishmentId += 1));
   setItems();
   setDropdowns();
+  setDateInputs();
 });
 
 addWithdrawal.addEventListener("click", () => {
@@ -251,6 +252,7 @@ addWithdrawal.addEventListener("click", () => {
   setWithdrawal((withdrawalId += 1));
   setItems();
   setDropdowns();
+  setDateInputs();
 });
 
 if (window.NodeList && !NodeList.prototype.forEach) {
@@ -284,6 +286,31 @@ if (document.querySelector(".calc-frequency")) {
       setVars();
     });
   });
+}
+
+const setDateInputs = () => {
+  if (document.querySelector(".date-input")) {
+    const inputs = document.querySelectorAll('.date-input');
+    inputs.forEach(el => {
+      el.addEventListener('keypress', function(e) {
+        if(e.keyCode < 47 || e.keyCode > 57) {
+          e.preventDefault();
+        }
+        var len = this.value.length;
+        if(len !== 1 || len !== 3) {
+          if(e.keyCode == 47) {
+            e.preventDefault();
+          }
+        }
+        if(len === 2) {
+          this.value += '.';
+        }
+        if(len === 5) {
+          this.value += '.';
+        }
+      })
+    })
+  }
 }
 
 const calcGraphs = () => {
@@ -472,3 +499,4 @@ setRanges();
 setGraphs();
 setReplenishment(replenishmentId);
 setWithdrawal(withdrawalId);
+setDateInputs();

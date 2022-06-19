@@ -178,6 +178,7 @@
   position: relative;
   isolation: isolate;
   pointer-events: none;
+  z-index: 1;
 }
 
 .calculator__block-wrapper * {
