@@ -1,0 +1,26 @@
+mixin calc-footer()
+    .calculator__footer 
+        .calculator__footer-item.calculator__results
+            .calculator__footer-action 
+                button(type='button').calculator__footer-action-btn.addReplenishment Добавить пополнение  
+                button(type='button').calculator__footer-action-btn.addWithdrawal Добавить снятие  
+            .calculator__footer-result
+                p.calculator__footer-result-label Сумма в конце 
+                p.calculator__footer-result-p.endResult 1 100 000 ₽ 
+            .calculator__footer-result
+                p.calculator__footer-result-label Доход за 1 год 
+                p.calculator__footer-result-p.yearResult 100 000 ₽ 
+        .calculator__footer-item
+            button(type='button').calculator__footer-btn Показать график выплат 
+
+mixin calc-footer-2()
+    .calculator__footer 
+        .calculator__footer-item.calculator__results
+            .calculator__footer-result
+                p.calculator__footer-result-label Сумма в конце 
+                p.calculator__footer-result-p.endResult 1 100 000 ₽ 
+            .calculator__footer-result
+                p.calculator__footer-result-label Доход за 1 год 
+                p.calculator__footer-result-p.yearResult 100 000 ₽ 
+        .calculator__footer-item
+            button(type='button').calculator__footer-btn Показать график выплат 

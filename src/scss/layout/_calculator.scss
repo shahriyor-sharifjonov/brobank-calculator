@@ -1,5 +1,8 @@
 .calculator {
   padding: 60px 0;
+  @include media(576){
+    padding: 30px 0;
+  }
   &__body {
     background: #ffffff;
     border: 1px solid #e6eaed;

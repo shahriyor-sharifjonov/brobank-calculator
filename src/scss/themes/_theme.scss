@@ -94,3 +94,44 @@ input[type="range"]::-ms-thumb {
     box-shadow: 0px 0px 1px 13px #176eae20, 0px 5px 5px rgba(136, 145, 157, 0.3);
   }
 }
+.title{
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 140%;
+  margin-bottom: 30px;
+  color: #000000;
+  @include media(576){
+    font-size: 19px;
+    line-height: 120%;
+    margin-bottom: 15px;
+  }
+}
+.categories{
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    @include media(576){
+      gap: 5px;
+    }
+  }
+  &__item{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #444444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F8FA;
+    border-radius: 20px;
+    padding: 11px 15px;
+    @include media(576){
+      padding: 8px 10px;
+      font-size: 13px;
+      line-height: 15px;
+    }
+  }
+}

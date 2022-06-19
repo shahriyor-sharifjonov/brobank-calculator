@@ -1,5 +1,5 @@
-mixin calculator()
-    .calculator
+mixin calc()
+    .calculator 
         .container 
             .calculator__body
                 .calculator__form 
@@ -22,14 +22,11 @@ mixin calculator()
                             input(type="text" placeholder="6 мес." value="6 мес." disabled).calculator__input
                             input(type="range" value="6" min="6" max="60" step="3" data-suffix="мес.").depositTerm.calculator__range
                     .calculator__line 
-                        .calculator__item 
-                            p.calculator__label Процентная ставка, в год
-                            input(type="text" placeholder="10%" value="10%" disabled).calculator__input
-                        .calculator__item 
+                        .calculator__block 
                             p.calculator__label Дата открытия 
                             input(type="text" placeholder="30.05.2022" value="30.05.2022" disabled).date-input.calculator__input.depositDate
                     .calculator__line 
-                        .calculator__item 
+                        .calculator__block
                             p.calculator__label Начисленные проценты
                             .dropdown.calc-charges 
                                 button(type='button').dropdown__button Оставлять на вкладе
@@ -37,18 +34,6 @@ mixin calculator()
                                     li.dropdown__list-item.dropdown__list-item_active(data-value="Оставлять на вкладе") Оставлять на вкладе
                                     li.dropdown__list-item(data-value="Выплачивать") Выплачивать
                                 input(type="text" name="select-percents" value="").dropdown__input_hidden
-                        .calculator__item
-                            p.calculator__label Периодичность выплат
-                            .dropdown 
-                                button(type='button').dropdown__button Раз в месяц
-                                ul.dropdown__list 
-                                    li.dropdown__list-item(data-value="Каждый день").calc-frequency Каждый день
-                                    li.dropdown__list-item(data-value="Каждую неделю").calc-frequency Каждую неделю
-                                    li.dropdown__list-item.dropdown__list-item_active(data-value="Раз в месяц").calc-frequency Раз в месяц
-                                    li.dropdown__list-item(data-value="Раз в квартал").calc-frequency Раз в квартал
-                                    li.dropdown__list-item(data-value="Раз в полгода").calc-frequency Раз в полгода
-                                    li.dropdown__list-item(data-value="Раз в год").calc-frequency Раз в год
-                                input(type="text" name="select-withdraw" value="").dropdown__input_hidden
                 .calculator__withdraws 
                 .calculator__list 
                     .calculator-title #[p График выплат]
@@ -104,4 +89,4 @@ mixin calculator()
                             p(data-name="Операции").calculator__list-item-p + 9 294,30
                             p(data-name="Остаток вклада").calculator__list-item-p 1 103 623,49
                 include calc-footer.pug 
-                +calc-footer()
+                +calc-footer-2()
