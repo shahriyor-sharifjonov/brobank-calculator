@@ -13,12 +13,12 @@ calc.forEach(calculator => {
   
   const depositStartDate = now.toLocaleDateString();
   
-  const percentForYear = 10;
-  const percentForMonth = percentForYear / 12;
-  const percentForDay = percentForMonth / 30;
-  const percentForWeek = percentForDay * 7;
-  const percentFor3Month = percentForMonth * 3;
-  const percentFor6Month = percentFor3Month * 2;
+  let percentForYear = calculator.querySelector(".percentage") ? calculator.querySelector(".percentage").value : 10;
+  let percentForMonth = percentForYear / 12;
+  let percentForDay = percentForMonth / 30;
+  let percentForWeek = percentForDay * 7;
+  let percentFor3Month = percentForMonth * 3;
+  let percentFor6Month = percentFor3Month * 2;
   
   let replenishment = "";
   let withdrawal = "";
@@ -58,6 +58,12 @@ calc.forEach(calculator => {
   depositDate.value = depositStartDate;
   
   const setVars = () => {
+    percentForYear = calculator.querySelector(".percentage") ? calculator.querySelector(".percentage").value : 10;
+    let percentForMonth = percentForYear / 12;
+    let percentForDay = percentForMonth / 30;
+    let percentForWeek = percentForDay * 7;
+    let percentFor3Month = percentForMonth * 3;
+    let percentFor6Month = percentFor3Month * 2;
     depositAmount = calculator.querySelector(".depositAmount").value;
     depositTerm = calculator.querySelector(".depositTerm").value;
     income = (depositAmount * 10) / 100;
@@ -447,7 +453,17 @@ calc.forEach(calculator => {
       })
     })
   };
-  
+
+  const checkInputsUpdate = () => {
+    if (calculator.querySelector('.percentage')){
+      const per = calculator.querySelector('.percentage');
+      per.addEventListener('input', () => {
+        setVars()
+      })
+    }
+  }
+
+  checkInputsUpdate()
   calcGraphs();
   setDropdowns();
   setRanges();

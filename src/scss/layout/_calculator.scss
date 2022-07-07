@@ -17,6 +17,10 @@
     @include media(576) {
       padding: 20px;
     }
+    &.small{
+      max-width: 790px;
+      width: 100%;
+    }
   }
   &-title {
     display: flex;

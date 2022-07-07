@@ -7,7 +7,7 @@ mixin calculator()
                         .calculator__block
                             p.calculator__label Сумма вклада
                             .calculator__block-wrapper
-                                input(type="text" placeholder="10 000" value="10 000" disabled).calculator__input.z
+                                input(type="number" placeholder="10000" value="10000" min="10000" max="30000000").calculator__input.z
                                 input(type="range" value="6" min="10000" max="30000000" step="10000").depositAmount.calculator__range
                                 .dropdown.symbol-drop 
                                     button(type='button').dropdown__button.value-symbol ₽
@@ -24,7 +24,7 @@ mixin calculator()
                     .calculator__line 
                         .calculator__item 
                             p.calculator__label Процентная ставка, в год
-                            input(type="text" placeholder="10%" value="10%" disabled).calculator__input
+                            input(type="text" placeholder="10" value="10" maxlength="3").calculator__input.percentage
                         .calculator__item 
                             p.calculator__label Дата открытия 
                             input(type="text" placeholder="30.05.2022" value="30.05.2022" disabled).date-input.calculator__input.depositDate

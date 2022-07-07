@@ -122,6 +122,11 @@
           flex-direction: column;
 }
 
+.calculator__body.small {
+  max-width: 790px;
+  width: 100%;
+}
+
 .calculator-title {
   display: -webkit-box;
   display: -ms-flexbox;
